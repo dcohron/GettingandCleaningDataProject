@@ -61,8 +61,8 @@ mainreduced<-select(main, matches("mean|std|Activity_Number|Subject_Number"))
 colnames(activities)<- c("Activity_Number", "Activity_Name")
 mainreduced<-merge(activities, mainreduced, by= "Activity_Number")
 
-# remove unneeded data
-#rm(main, xtest, ytest, ytrain, subtest, subtrain, a, features, addedfeatures, activities)
+# remove unneeded variables and data frames
+rm(main, xtest, ytest, ytrain, subtest, subtrain, a, features, addedfeatures, activities)
 
 # convert names to factors so they may group by
 mainreduced$Activity_Name<- as.factor(mainreduced$Activity_Name)
@@ -74,8 +74,8 @@ levels(mainreduced$Activity_Name) <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_D
 #     Do text manipulation to clean up names
 
 # remove "()" and "." from variable names to enhance readability
-sub("()-", "", names(mainreduced))
-gsub("\\.", "", names(mainreduced))
+names(mainreduced)<- sub("()-", "", names(mainreduced))
+names(mainreduced)<- gsub("\\.", "", names(mainreduced))
 
 
 # ASSIGNMENT #5- create second tidy data set with average of each
