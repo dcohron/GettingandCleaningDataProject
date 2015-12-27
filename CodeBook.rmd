@@ -1,0 +1,42 @@
+---
+title: "CodeBook.rmd"
+author: "David N. Cohron"
+date: "December 27, 2015"
+output: pdf_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+\ Code Description:{
+The script run_analysis.r does the following:
+1) Merges the training and the test sets to create one data set.
+2) Extracts only the measurements on the mean and standard deviation for each measurement. 
+3) Uses descriptive activity names to name the activities in the data set
+4) Appropriately labels the data set with descriptive variable names. 
+5) From the data set in step 4, creates a second, independent tidy data set with the average of each 
+    variable for each activity and each subject.
+
+
+All code is annotated in the run_analysis.r script.
+
+This below will walk through the methodology of the script as remarked in the file itself:
+1) Load the libraries that will be used later in the script.
+2) Name the files for subsequent loading by assigning the file locations to variables.
+3) Read in the intial data files to begin reassembling the main file from the parts- test (x, y and sub):
+    This was a bit of a puzzle and really had to look at each of the files and the data therein to see 
+    how each component would fit with the entire data frame. This involved matching the dimensions of the 
+    data.frames to determine how they would fit together.
+4) From features.txt we see that the data are variable names.  Must convert from factor to character and
+    assign to column names of the main file.
+5) From main we can produce mainreduced as we subset on variables that contain mean and standard deviations.
+    This reduces the data frame from 563 variables to a more manageable 89.
+6) Then we can clear memory of the data frames that we are no longer using which speeds up processing.
+7) Now we need to convert names back to factors so that we can group by activity and subject
+8) This is a good point to clean up the variable names used as column names in the data frame.
+    I found the variable names to be fairly clear, although a bit long and unwieldy.  I cleaned 
+    them up by removing "." and "()-" because these were in many names and were untidy.
+9) Now the mainreduced data frame is ready to be grouped by activity and subject and using the pipeline
+    operator "%>%" feed into summary_each to calculate the mean of each column.  This produced a data frame
+    with 180 observations (rows) on the same 89 variables (columns) which saves in tidymain.
+10) Last is to write tidymain out to a text file "tidydate.txt"    
+}
