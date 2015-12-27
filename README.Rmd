@@ -1,11 +1,11 @@
 ---
-title: "Codebook"
+title: "README.Rmd"
 author: "David N. Cohron"
 date: "December 27, 2015"
 output: pdf_document
 ---
 
-\ Codebook
+
 
 \ Abstract: 
 \ As a class project for the Getting and Cleaning Data class by Johns Hopkins University we
