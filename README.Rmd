@@ -1,0 +1,273 @@
+---
+title: "Codebook"
+author: "David N. Cohron"
+date: "December 27, 2015"
+output: pdf_document
+---
+
+\ Codebook
+
+\ Abstract: 
+\ As a class project for the Getting and Cleaning Data class by Johns Hopkins University we
+\ cleaned and subset the data to provide tidydata.txt via the script run_analysis.r.  This data was
+\ derived from the UCI Human Activity Recognition database, available here (http://archive.ics.uci.
+\ edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) built from the recordings of 30
+\ subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone 
+\ with embedded inertial sensors. The subset data is 180 observations on 89 variables on the mean
+\ standard deviation on the groups by subject and activity type of the original 10,299 observations
+\ on 563 variables of the original data set.
+
+
+\ Data Set Information:
+\ The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48
+\ years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING,
+\ STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded
+\ accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at
+\ a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The
+\ obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was
+\ selected for generating the training data and 30% the test data. 
+
+\ The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and 
+\ then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The
+\ sensor acceleration signal, which has gravitational and body motion components, was separated using
+\ a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed
+\ to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used.
+\ From each window, a vector of features was obtained by calculating variables from the time and
+\ frequency domain.
+
+\ Each recorded provides:
+\ - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+\ - Triaxial Angular velocity from the gyroscope. 
+\ - A 561-feature vector with time and frequency domain variables. 
+\ - Its activity label. 
+\ - An identifier of the subject who carried out the experiment.
+
+\ The script run_analysis.r does the following:
+\ Merges the training and the test sets to create one data set.
+\ Extracts only the measurements on the mean and standard deviation for each measurement. 
+\ Uses descriptive activity names to name the activities in the data set
+\ Appropriately labels the data set with descriptive variable names. 
+\ From the data set in step 4, creates a second, independent tidy data set with the average of each 
+\ variable for each activity and each subject.
+
+
+\ All code is annotated in the run_analysis.r script.
+
+
+\  A data frame with 180 observations on the following 89 variables.
+
+    \item{\code{Activity_Name}}{a factor with levels \code{WALKING} \code{WALKING_UPSTAIRS} \code{WALKING_DOWNSTAIRS} \code{SITTING} \code{STANDING} \code{LAYING}}
+    \item{\code{Subject_Number}}{a numeric vector} - 30 subjects were measured in the test
+    \item{\code{Activity_Number}}{a numeric vector} - activities from Activity_Name have a cooresponding number for tracking
+    \item{\code{tBodyAccmeanX}}{a numeric vector}
+    \item{\code{tBodyAccmeanY}}{a numeric vector}
+    \item{\code{tBodyAccmeanZ}}{a numeric vector}
+    \item{\code{tBodyAccstdX}}{a numeric vector}
+    \item{\code{tBodyAccstdY}}{a numeric vector}
+    \item{\code{tBodyAccstdZ}}{a numeric vector}
+    \item{\code{tGravityAccmeanX}}{a numeric vector}
+    \item{\code{tGravityAccmeanY}}{a numeric vector}
+    \item{\code{tGravityAccmeanZ}}{a numeric vector}
+    \item{\code{tGravityAccstdX}}{a numeric vector}
+    \item{\code{tGravityAccstdY}}{a numeric vector}
+    \item{\code{tGravityAccstdZ}}{a numeric vector}
+    \item{\code{tBodyAccJerkmeanX}}{a numeric vector}
+    \item{\code{tBodyAccJerkmeanY}}{a numeric vector}
+    \item{\code{tBodyAccJerkmeanZ}}{a numeric vector}
+    \item{\code{tBodyAccJerkstdX}}{a numeric vector}
+    \item{\code{tBodyAccJerkstdY}}{a numeric vector}
+    \item{\code{tBodyAccJerkstdZ}}{a numeric vector}
+    \item{\code{tBodyGyromeanX}}{a numeric vector}
+    \item{\code{tBodyGyromeanY}}{a numeric vector}
+    \item{\code{tBodyGyromeanZ}}{a numeric vector}
+    \item{\code{tBodyGyrostdX}}{a numeric vector}
+    \item{\code{tBodyGyrostdY}}{a numeric vector}
+    \item{\code{tBodyGyrostdZ}}{a numeric vector}
+    \item{\code{tBodyGyroJerkmeanX}}{a numeric vector}
+    \item{\code{tBodyGyroJerkmeanY}}{a numeric vector}
+    \item{\code{tBodyGyroJerkmeanZ}}{a numeric vector}
+    \item{\code{tBodyGyroJerkstdX}}{a numeric vector}
+    \item{\code{tBodyGyroJerkstdY}}{a numeric vector}
+    \item{\code{tBodyGyroJerkstdZ}}{a numeric vector}
+    \item{\code{tBodyAccMagmean}}{a numeric vector}
+    \item{\code{tBodyAccMagstd}}{a numeric vector}
+    \item{\code{tGravityAccMagmean}}{a numeric vector}
+    \item{\code{tGravityAccMagstd}}{a numeric vector}
+    \item{\code{tBodyAccJerkMagmean}}{a numeric vector}
+    \item{\code{tBodyAccJerkMagstd}}{a numeric vector}
+    \item{\code{tBodyGyroMagmean}}{a numeric vector}
+    \item{\code{tBodyGyroMagstd}}{a numeric vector}
+    \item{\code{tBodyGyroJerkMagmean}}{a numeric vector}
+    \item{\code{tBodyGyroJerkMagstd}}{a numeric vector}
+    \item{\code{fBodyAccmeanX}}{a numeric vector}
+    \item{\code{fBodyAccmeanY}}{a numeric vector}
+    \item{\code{fBodyAccmeanZ}}{a numeric vector}
+    \item{\code{fBodyAccstdX}}{a numeric vector}
+    \item{\code{fBodyAccstdY}}{a numeric vector}
+    \item{\code{fBodyAccstdZ}}{a numeric vector}
+    \item{\code{fBodyAccmeanFreqX}}{a numeric vector}
+    \item{\code{fBodyAccmeanFreqY}}{a numeric vector}
+    \item{\code{fBodyAccmeanFreqZ}}{a numeric vector}
+    \item{\code{fBodyAccJerkmeanX}}{a numeric vector}
+    \item{\code{fBodyAccJerkmeanY}}{a numeric vector}
+    \item{\code{fBodyAccJerkmeanZ}}{a numeric vector}
+    \item{\code{fBodyAccJerkstdX}}{a numeric vector}
+    \item{\code{fBodyAccJerkstdY}}{a numeric vector}
+    \item{\code{fBodyAccJerkstdZ}}{a numeric vector}
+    \item{\code{fBodyAccJerkmeanFreqX}}{a numeric vector}
+    \item{\code{fBodyAccJerkmeanFreqY}}{a numeric vector}
+    \item{\code{fBodyAccJerkmeanFreqZ}}{a numeric vector}
+    \item{\code{fBodyGyromeanX}}{a numeric vector}
+    \item{\code{fBodyGyromeanY}}{a numeric vector}
+    \item{\code{fBodyGyromeanZ}}{a numeric vector}
+    \item{\code{fBodyGyrostdX}}{a numeric vector}
+    \item{\code{fBodyGyrostdY}}{a numeric vector}
+    \item{\code{fBodyGyrostdZ}}{a numeric vector}
+    \item{\code{fBodyGyromeanFreqX}}{a numeric vector}
+    \item{\code{fBodyGyromeanFreqY}}{a numeric vector}
+    \item{\code{fBodyGyromeanFreqZ}}{a numeric vector}
+    \item{\code{fBodyAccMagmean}}{a numeric vector}
+    \item{\code{fBodyAccMagstd}}{a numeric vector}
+    \item{\code{fBodyAccMagmeanFreq}}{a numeric vector}
+    \item{\code{fBodyBodyAccJerkMagmean}}{a numeric vector}
+    \item{\code{fBodyBodyAccJerkMagstd}}{a numeric vector}
+    \item{\code{fBodyBodyAccJerkMagmeanFreq}}{a numeric vector}
+    \item{\code{fBodyBodyGyroMagmean}}{a numeric vector}
+    \item{\code{fBodyBodyGyroMagstd}}{a numeric vector}
+    \item{\code{fBodyBodyGyroMagmeanFreq}}{a numeric vector}
+    \item{\code{fBodyBodyGyroJerkMagmean}}{a numeric vector}
+    \item{\code{fBodyBodyGyroJerkMagstd}}{a numeric vector}
+    \item{\code{fBodyBodyGyroJerkMagmeanFreq}}{a numeric vector}
+    \item{\code{angletBodyAccMeangravity}}{a numeric vector}
+    \item{\code{angletBodyAccJerkMeangravityMean}}{a numeric vector}
+    \item{\code{angletBodyGyroMeangravityMean}}{a numeric vector}
+    \item{\code{angletBodyGyroJerkMeangravityMean}}{a numeric vector}
+    \item{\code{angleXgravityMean}}{a numeric vector}
+    \item{\code{angleYgravityMean}}{a numeric vector}
+    \item{\code{angleZgravityMean}}{a numeric vector}
+  }
+}
+
+
+\source{
+License:
+========
+Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+}
+
+
+
+
+
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+[1] "Activity_Name"                    
+ [2] "Subject_Number"                   
+ [3] "Activity_Number"                  
+ [4] "tBodyAccmeanX"                    
+ [5] "tBodyAccmeanY"                    
+ [6] "tBodyAccmeanZ"                    
+ [7] "tBodyAccstdX"                     
+ [8] "tBodyAccstdY"                     
+ [9] "tBodyAccstdZ"                     
+[10] "tGravityAccmeanX"                 
+[11] "tGravityAccmeanY"                 
+[12] "tGravityAccmeanZ"                 
+[13] "tGravityAccstdX"                  
+[14] "tGravityAccstdY"                  
+[15] "tGravityAccstdZ"                  
+[16] "tBodyAccJerkmeanX"                
+[17] "tBodyAccJerkmeanY"                
+[18] "tBodyAccJerkmeanZ"                
+[19] "tBodyAccJerkstdX"                 
+[20] "tBodyAccJerkstdY"                 
+[21] "tBodyAccJerkstdZ"                 
+[22] "tBodyGyromeanX"                   
+[23] "tBodyGyromeanY"                   
+[24] "tBodyGyromeanZ"                   
+[25] "tBodyGyrostdX"                    
+[26] "tBodyGyrostdY"                    
+[27] "tBodyGyrostdZ"                    
+[28] "tBodyGyroJerkmeanX"               
+[29] "tBodyGyroJerkmeanY"               
+[30] "tBodyGyroJerkmeanZ"               
+[31] "tBodyGyroJerkstdX"                
+[32] "tBodyGyroJerkstdY"                
+[33] "tBodyGyroJerkstdZ"                
+[34] "tBodyAccMagmean"                  
+[35] "tBodyAccMagstd"                   
+[36] "tGravityAccMagmean"               
+[37] "tGravityAccMagstd"                
+[38] "tBodyAccJerkMagmean"              
+[39] "tBodyAccJerkMagstd"               
+[40] "tBodyGyroMagmean"                 
+[41] "tBodyGyroMagstd"                  
+[42] "tBodyGyroJerkMagmean"             
+[43] "tBodyGyroJerkMagstd"              
+[44] "fBodyAccmeanX"                    
+[45] "fBodyAccmeanY"                    
+[46] "fBodyAccmeanZ"                    
+[47] "fBodyAccstdX"                     
+[48] "fBodyAccstdY"                     
+[49] "fBodyAccstdZ"                     
+[50] "fBodyAccmeanFreqX"                
+[51] "fBodyAccmeanFreqY"                
+[52] "fBodyAccmeanFreqZ"                
+[53] "fBodyAccJerkmeanX"                
+[54] "fBodyAccJerkmeanY"                
+[55] "fBodyAccJerkmeanZ"                
+[56] "fBodyAccJerkstdX"                 
+[57] "fBodyAccJerkstdY"                 
+[58] "fBodyAccJerkstdZ"                 
+[59] "fBodyAccJerkmeanFreqX"            
+[60] "fBodyAccJerkmeanFreqY"            
+[61] "fBodyAccJerkmeanFreqZ"            
+[62] "fBodyGyromeanX"                   
+[63] "fBodyGyromeanY"                   
+[64] "fBodyGyromeanZ"                   
+[65] "fBodyGyrostdX"                    
+[66] "fBodyGyrostdY"                    
+[67] "fBodyGyrostdZ"                    
+[68] "fBodyGyromeanFreqX"               
+[69] "fBodyGyromeanFreqY"               
+[70] "fBodyGyromeanFreqZ"               
+[71] "fBodyAccMagmean"                  
+[72] "fBodyAccMagstd"                   
+[73] "fBodyAccMagmeanFreq"              
+[74] "fBodyBodyAccJerkMagmean"          
+[75] "fBodyBodyAccJerkMagstd"           
+[76] "fBodyBodyAccJerkMagmeanFreq"      
+[77] "fBodyBodyGyroMagmean"             
+[78] "fBodyBodyGyroMagstd"              
+[79] "fBodyBodyGyroMagmeanFreq"         
+[80] "fBodyBodyGyroJerkMagmean"         
+[81] "fBodyBodyGyroJerkMagstd"          
+[82] "fBodyBodyGyroJerkMagmeanFreq"     
+[83] "angletBodyAccMeangravity"         
+[84] "angletBodyAccJerkMeangravityMean" 
+[85] "angletBodyGyroMeangravityMean"    
+[86] "angletBodyGyroJerkMeangravityMean"
+[87] "angleXgravityMean"                
+[88] "angleYgravityMean"                
+[89] "angleZgravityMean
